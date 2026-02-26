@@ -1,0 +1,13 @@
+{
+  "name": "root-path",
+  "version": "0.2.1",
+  "description": "Normalize paths, joined with project's root path",
+  "keywords": [
+    "root",
+    "path"
+  ],
+  "license": "MIT",
+  "author": "David Carley <dacarley@gmail.com>",
+  "main": "index.js",
+  "repository": "https://github.com/dacarley/root-path"
+}
