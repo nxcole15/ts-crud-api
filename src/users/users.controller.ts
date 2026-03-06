@@ -58,6 +58,7 @@ function createSchema(req: Request, res: Response, next: NextFunction): void {
         email: Joi.string().email().required(),
         password: Joi.string().min(6).required(),
         confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
+        isVerified: Joi.boolean().default(false),
     });
     validateRequest(req, next, schema);
 }
@@ -71,6 +72,7 @@ function updateSchema(req: Request, res: Response, next: NextFunction): void {
         email: Joi.string().email().empty(''),
         password: Joi.string().min(6).empty(''),
         confirmPassword: Joi.string().valid(Joi.ref('password')).empty(''),
+        isVerified: Joi.boolean(),
     }).with('password', 'confirmPassword');
     validateRequest(req, next, schema);
 }

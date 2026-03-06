@@ -12,7 +12,7 @@ export interface UserAttributes {
     role: string;
     createdAt: Date;
     updatedAt: Date;
-
+    isVerified: Boolean,
 }
 
 //Define optional attributes for creation
@@ -33,6 +33,7 @@ export class User
     public role!: string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
+    public readonly isVerified!: Boolean;
 }
 
 // Export the model initializer function
@@ -79,6 +80,11 @@ export default function (sequelize: Sequelize): typeof User {
                 allowNull: false,
                 defaultValue: DataTypes.NOW,
             },
+            isVerified: {
+                type: DataTypes.BOOLEAN,
+                allowNull: false,
+                defaultValue: false,
+            }
         },
         {
           sequelize,
