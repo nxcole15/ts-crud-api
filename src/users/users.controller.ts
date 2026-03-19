@@ -21,7 +21,7 @@ export default router;
 function getAll(req: Request, res: Response, next: NextFunction): void {
     userService.getAll()
     .then((users) => res.json(users))
-    .catch(next);;
+    .catch(next);
 }
 
 function getById(req: Request, res: Response, next: NextFunction): void {

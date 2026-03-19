@@ -34,6 +34,11 @@ export class User
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
     public readonly isVerified!: Boolean;
+
+    static associate(models: { User: typeof User; Employee: any; Request: any }) {
+        models.User.hasOne(models.Employee, { foreignKey: 'userId', as: 'employee' });
+        models.User.hasMany(models.Request, { foreignKey: 'userId', as: 'requests' });
+    }
 }
 
 // Export the model initializer function
